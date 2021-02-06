@@ -1,0 +1,26 @@
+<%- include('./partials/header.ejs') %>
+  <div class="todo-container">
+    <h2>TODO App</h2>
+    <div class="desc-input input-style">
+      <label for="desc">DESCRIPTION</label>
+      <input type="text" name="description" id="desc" placeholder="What do you need to do?">
+    </div>
+    <div class="cat-date-input">
+      <div class="cat-input input-style">
+        <label>CATEGORY</label>
+          <select id="category" aria-placeholder="Choose a category">
+            <option>Work</option>
+          <option>Personal</option>
+          </select>
+      </div>
+      <div class="date-input input-style">
+        <label for="date">DUE DATE</label>
+        <input type="date" name="date" id="date" placeholder="dd/mm/yy">
+      </div>
+    </div>
+    <button id="add-todo">Add Task</button>
+    <div class="todos">
+
+    </div>
+  </div>
+<%- include('./partials/footer.ejs') %>

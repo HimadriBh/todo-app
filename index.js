@@ -18,7 +18,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // routes for sending & receving request
 app.get('/', function(req, res){
-  res.send("Home Route");
+  res.render('home')
 })
 
 // setup server to listen on port 5000
