@@ -6,6 +6,10 @@ const app = express();
 // initialze dotenv config file for process variables
 require('dotenv').config();
 
+// import database connection file & connect
+const connectDB = require('./config/db')
+connectDB();
+
 // middleware to recognize incoming request Objects as string or arrays
 app.use(express.urlencoded({ extended: false }))
 
@@ -17,9 +21,8 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // routes for sending & receving request
-app.get('/', function(req, res){
-  res.render('home')
-})
+const todosRoutes =  require('./routes/Todo');
+app.use('/todos', todosRoutes);
 
 // setup server to listen on port 5000
 app.listen(process.env.PORT, function(err){

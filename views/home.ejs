@@ -1,26 +1,43 @@
 <%- include('./partials/header.ejs') %>
-  <div class="todo-container">
-    <h2>TODO App</h2>
+  <div class="todo-container" >
+    <form action="/todos" method="POST" id='todo-form'>
+      <h2>TODO App</h2>
     <div class="desc-input input-style">
       <label for="desc">DESCRIPTION</label>
-      <input type="text" name="description" id="desc" placeholder="What do you need to do?">
+      <input type="text" name="description" id="desc" placeholder="What do you need to do?" required>
     </div>
     <div class="cat-date-input">
       <div class="cat-input input-style">
         <label>CATEGORY</label>
-          <select id="category" aria-placeholder="Choose a category">
-            <option>Work</option>
-          <option>Personal</option>
+          <select id="category" name="category" aria-placeholder="Choose a category" required>
+            <option value="work">Work</option>
+          <option value="personal">Personal</option>
           </select>
       </div>
       <div class="date-input input-style">
         <label for="date">DUE DATE</label>
-        <input type="date" name="date" id="date" placeholder="dd/mm/yy">
+        <input type="date" name="dueDate" id="date" placeholder="dd/mm/yy">
       </div>
     </div>
-    <button id="add-todo">Add Task</button>
-    <div class="todos">
-
+    <button id="add-todo"><i class="fas fa-plus"></i>   Add Task</button>
+    </form>
+    <div class="todos" id="todos-list">
+      <% for(let i = 0; i < todos.length; i++){ %>
+          <div class="todo-item">
+            <div class="item-checkbox"><input type="checkbox"></div>
+            <div class="todo-details">
+              <p><%= todos[i].description %></p>
+              <br>
+              <p><span><i class="fas fa-calendar-alt"></i></span><%= todos[i].dueDate.toDateString().slice(4,7) + ' '       +  todos[i].dueDate.getDate() + ', ' +  todos[i].dueDate.getFullYear()  %></p>
+            </div>
+            <div class="item-category">
+              <button class="<%= todos[i].category %>"><%= todos[i].category %></button>
+            </div>
+            <div class="item-delete" title="Delete todo">
+              <a href="todos/delete/?id=<%=todos[i].id%>"><i class="far fa-trash-alt"></i></a>
+            </div>
+          </div>
+        <% } %>
     </div>
   </div>
 <%- include('./partials/footer.ejs') %>

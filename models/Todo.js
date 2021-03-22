@@ -10,7 +10,7 @@ const TodoSchema = new mongoose.Schema({
     enum:['work', 'personal', 'school', 'cleaning', 'other'],
     default: 'personal'
   },
-  DueDate: Date
+  dueDate: Date
 })
 
 const Todo = mongoose.model('Todo', TodoSchema);

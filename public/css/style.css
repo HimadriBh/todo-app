@@ -13,7 +13,7 @@
   align-items: flex-start;
 }
 .todo-container{
-  min-width: 600px;
+  min-width: 550px;
   width: 60%;
   height: auto;
   margin-top: 1rem;
@@ -75,4 +75,62 @@ input:focus{
 }
 #add-todo:hover{
   box-shadow: 1px 2px 3px rgba(0,0,0,0.2);
+}
+/* todos list */
+.todos{
+  display: flex;
+  flex-direction: column;
+}
+.todo-item{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 1rem;
+  border: 1px solid #ddd;
+}
+.todo-item .item-checkbox{
+  align-self: flex-start;
+  padding: 1.2rem 0.5rem;
+}
+.todo-details{
+  padding: 1rem;
+}
+.todo-details>p{
+  font-size: 1.2rem;
+  color: #555;
+  text-align: left;
+}
+.todo-details p:nth-of-type(2n){
+  text-align: left;
+  font-size: 0.9rem;
+  color: #999;
+}
+.todo-details p:nth-of-type(2n) span{
+  display: inline-block;
+  margin-right: 1rem;
+}
+.item-category{
+  margin-left: auto;
+  margin-right: 2rem;
+}
+.item-category button{
+  padding: 12px 15px;
+  text-transform:uppercase;
+  color: white;
+  border: none;
+}
+.item-delete {
+  padding-right: 1rem;
+}
+.item-delete a{
+  color: midnightblue;
+  font-size: 1.2rem;
+}
+.work{
+  background-color: purple;
+}
+
+.personal{
+  background-color: blue;
 }
